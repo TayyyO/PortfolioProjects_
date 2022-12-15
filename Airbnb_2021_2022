@@ -1,0 +1,34 @@
+-- AVG price by zipcode>> Where should i buy a home to put on Airbnb and start renting 
+SELECT Zipcode, AVG(price) AS Average_Price 
+FROM AirBnb_2021..[listings_ Austin]
+Group By Zipcode
+Order by 2
+
+--When are people spending the most money on airBnbs 
+SELECT Date, SUM(Price) AS Price 
+FROM AirBnb_2021..calendar
+Group By Date 
+
+
+-- Average Price based on Property type 
+SELECT property_type, AVG(price) AS Average_Price
+FROM AirBnb_2021..[listings_ Austin]
+GROUP BY property_type
+Order By 2
+
+
+-- What affect the price of the airBnB 
+SELECT DISTINCT bedrooms, AVG(PRICE) AS avg_price_bedroom
+FROM AirBnb_2021..[listings_ Austin]
+Group By bedrooms
+ORDER BY 2
+
+-- What Bedroom Count brings in the most money 
+SELECT DISTINCT bedrooms, SUM(PRICE) AS total_price_bedroom
+FROM AirBnb_2021..[listings_ Austin]
+Group By bedrooms
+ORDER BY 1
+
+-- Discovering the competition 
+SELECT id, bedrooms
+FROM AirBnb_2021..[listings_ Austin]
